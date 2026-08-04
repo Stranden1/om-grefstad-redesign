@@ -56,7 +56,6 @@ export const navigation = [
   { label: "Biler", href: "#biler" },
   { label: "Opel", href: "#opel" },
   { label: "Verksted", href: "#verksted" },
-  { label: "Tjenester", href: "#tjenester" },
   { label: "Om oss", href: "#om-oss" },
   { label: "Kontakt", href: "#kontakt" },
 ] as const;
@@ -124,4 +123,3 @@ export const history = [
   { year: "1977", text: "Opel blir en del av historien 1. desember." },
   { year: "2003", text: "Subaru blir en del av virksomheten." },
 ] as const;
-
