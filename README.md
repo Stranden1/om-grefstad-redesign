@@ -1,5 +1,7 @@
 # O.M. Grefstad – redesignprototype
 
+> **This repository is an independent redesign prototype for O.M. Grefstad AS and is not the production website.**
+
 Dette er en frittstående, moderne redesignprototype for O.M. Grefstad AS. Den er ikke koblet til produksjonsnettstedet og skal ikke publiseres over dagens løsning uten en egen innholds-, fakta- og rettighetsgjennomgang.
 
 ## Retning
@@ -30,7 +32,11 @@ npm install
 npm run dev
 ```
 
-Åpne deretter adressen som vises i terminalen. Produksjonsbygg kan kontrolleres med `npm run build`.
+Åpne deretter adressen som vises i terminalen. Produksjonsbygg for Vercel/Next.js kan kontrolleres med `npm run build` og kjøres med `npm start`. Den eksisterende Sites-varianten kan fortsatt bygges med `npm run build:sites`.
+
+## Teknologi og demo-innhold
+
+Prototypen er bygget med Next.js, React, TypeScript og Tailwind CSS. Bilkort, priser, lagerstatus og enkelte bilder er demonstrasjonsinnhold for UX- og designgjennomgang; dette er ikke et live lager eller offisiell produktinformasjon.
 
 ## Struktur
 
@@ -64,4 +70,3 @@ Kilder: [omgrefstad.no](https://www.omgrefstad.no/), [Surnadal](https://www.omgr
 ## Bilder og rettigheter
 
 Bil- og verkstedbildene er prototypebilder fra Unsplash og er merket som illustrasjons-/prototypefoto der det er relevant. De bør erstattes med godkjente bilder av de faktiske avdelingene, de ansatte og lokalt tilgjengelige biler. `public/og.png` er et KI-generert sosialt delingsbilde laget spesielt for prototypen.
-
