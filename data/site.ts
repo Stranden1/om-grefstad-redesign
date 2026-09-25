@@ -1,125 +1,57 @@
-export const dealership = {
-  name: "O.M. Grefstad AS",
-  displayName: "O.M. Grefstad",
-  mainPhone: { label: "72 49 72 00", href: "tel:+4772497200" },
-  mainEmail: {
-    label: "kundeservice@omgrefstad.no",
-    href: "mailto:kundeservice@omgrefstad.no",
-  },
-  facts: {
-    established: "1936",
-    carSales: "1969",
-    opelDealer: "1977",
-    opelDealerDate: "1. desember 1977",
-    subaru: "2003",
-  },
-  links: {
-    usedCars: "https://www.omgrefstad.no/?p=237",
-    opelModels: "https://omgrefstad.opel.no/personbiler/",
-    opelBuilder: "https://www.opel.no/tools/bygg-din-opel.html",
-    opelCampaigns: "https://www.opel.no/tilbud/aktuelle-tilbud.html",
-    opelTestDrive: "https://kontaktoss.opel.no/",
-    opelWorkshop: "https://booking.opel.no/bestilling?dealer=419",
-    currentSite: "https://www.omgrefstad.no/",
-  },
-  locations: [
-    {
-      id: "lokken",
-      name: "Løkken Verk",
-      phone: { label: "72 49 72 00", href: "tel:+4772497200" },
-      email: {
-        label: "kundeservice@omgrefstad.no",
-        href: "mailto:kundeservice@omgrefstad.no",
-      },
-      address: "Løkkenveien 386, 7332 Løkken Verk",
-      directions:
-        "https://www.google.com/maps/search/?api=1&query=L%C3%B8kkenveien+386%2C+7332+L%C3%B8kken+Verk",
-      note: "Adresse fra hovednettstedet. Opel-siden viser et annet gatenummer – må bekreftes før publisering.",
-    },
-    {
-      id: "surnadal",
-      name: "Surnadal",
-      phone: { label: "71 65 75 72", href: "tel:+4771657572" },
-      email: {
-        label: "ribi.verksted@omgrefstad.no",
-        href: "mailto:ribi.verksted@omgrefstad.no",
-      },
-      address: "Øravegen 4, 6650 Surnadal",
-      directions:
-        "https://www.google.com/maps/search/?api=1&query=%C3%98ravegen+4%2C+6650+Surnadal",
-      note: "Avdeling ved ALTI-senteret i Surnadal.",
-    },
-  ],
+export const phones = {
+  lokken: { label: "72 49 72 00", href: "tel:+4772497200" },
+  surnadal: { label: "71 65 75 72", href: "tel:+4771657572" },
+} as const;
+
+export const emails = {
+  lokken: { label: "kundeservice@omgrefstad.no", href: "mailto:kundeservice@omgrefstad.no" },
+  surnadal: { label: "ribi.verksted@omgrefstad.no", href: "mailto:ribi.verksted@omgrefstad.no" },
+} as const;
+
+export const links = {
+  booking: "https://booking.opel.no/bestilling?dealer=419",
+  finn: "https://www.finn.no/pw/search/car-norway?orgId=1878849865",
+  opel: "https://omgrefstad.opel.no",
+  facebook: "https://www.facebook.com/omgrefstad/",
+  mapsLokken: "https://maps.google.com/?q=Løkkenveien+Løkken+Verk",
+  mapsSurnadal: "https://maps.google.com/?q=Øravegen+4,+6650+Surnadal",
 } as const;
 
 export const navigation = [
-  { label: "Biler", href: "#biler" },
-  { label: "Opel", href: "#opel" },
-  { label: "Verksted", href: "#verksted" },
-  { label: "Om oss", href: "#om-oss" },
-  { label: "Kontakt", href: "#kontakt" },
+  { label: "Biler", menuLabel: "Biler", href: "/biler" },
+  { label: "Verksted og EU-kontroll", menuLabel: "Verksted og EU-kontroll", href: "/verksted" },
+  { label: "Surnadal", menuLabel: "Avdeling Surnadal", href: "/surnadal" },
+  { label: "Om oss", menuLabel: "Om oss og historien", href: "/om-oss" },
+  { label: "Kontakt", menuLabel: "Kontakt og åpningstider", href: "/kontakt" },
 ] as const;
 
-export const sampleVehicles = [
-  {
-    model: "Opel Mokka",
-    modelYear: "2021",
-    mileage: "42 000 km",
-    powertrain: "Bensin · Automat",
-    price: "289 000 kr",
-    image: "/images/opel-05.jpg",
-    alt: "Grønn Opel Mokka fotografert på en rolig vei",
-  },
-  {
-    model: "Opel Astra",
-    modelYear: "2018",
-    mileage: "76 500 km",
-    powertrain: "Diesel · Manuell",
-    price: "179 000 kr",
-    image: "/images/opel-04.jpg",
-    alt: "Hvit Opel Astra parkert i kveldssol",
-  },
-  {
-    model: "Opel Corsa",
-    modelYear: "2020",
-    mileage: "38 200 km",
-    powertrain: "Bensin · Automat",
-    price: "209 000 kr",
-    image: "/images/opel-02.jpg",
-    alt: "Hvit Opel Corsa på en skogsvei",
-  },
-] as const;
-
-export const services = [
-  {
-    name: "Bilsalg",
-    description: "Nye Opel- og Subaru-modeller og et variert utvalg bruktbiler.",
-  },
-  {
-    name: "Verksted og PKK",
-    description: "Service, vedlikehold, reparasjoner og periodisk kjøretøykontroll.",
-  },
-  {
-    name: "Dekk og dekkhotell",
-    description: "Dekkskift, oppbevaring og vedlikehold gjennom sesongene.",
-  },
-  {
-    name: "Karosseri og lakk",
-    description: "Bilskadereparasjoner og lakkering ved avdelingen på Løkken Verk.",
-  },
-  {
-    name: "Deler og tilbehør",
-    description: "Delelager og hjelp til å skaffe riktige deler til bilen din.",
-  },
-  {
-    name: "Ruter og bilpleie",
-    description: "Ruteskift i Surnadal og vaskehall ved avdelingen på Løkken Verk.",
-  },
+export const sampleCars = [
+  { name: "Opel Astra", meta: "Eksempel · 2018 · 76 500 km", price: "179 000 kr", image: "/images/astra-hvit.jpg", alt: "Hvit Opel Astra" },
+  { name: "Opel Mokka", meta: "Eksempel · 2021 · 42 000 km", price: "289 000 kr", image: "/images/mokka-gronn.jpg", alt: "Grønn Opel Mokka" },
+  { name: "Opel Mokka", meta: "Eksempel · [år] · [km]", price: "[pris]", image: "/images/mokka-hvit-bak.jpg", alt: "Hvit Opel Mokka sett bakfra" },
 ] as const;
 
 export const history = [
-  { year: "1936", text: "Virksomheten starter på Løkken Verk." },
-  { year: "1969", text: "O.M. Grefstad begynner med bilsalg." },
-  { year: "1977", text: "Opel blir en del av historien 1. desember." },
-  { year: "2003", text: "Subaru blir en del av virksomheten." },
+  { year: "1936", text: "Bensinstasjon og sykkelverksted på Løkken Verk" },
+  { year: "1969", text: "Bilsalget starter" },
+  { year: "1977", text: "Opel-forhandler fra 1. desember", highlight: true },
+  { year: "2003", text: "Subaru-forhandleren i Surnadal blir en del av O.M. Grefstad" },
 ] as const;
+
+type Person = { name: string; role: string; phone?: { label: string; href: string } };
+
+export const people: Person[] = [
+  { name: "Terje Danielsen", role: "Daglig leder / salg", phone: { label: "917 94 981", href: "tel:+4791794981" } },
+  { name: "Bjørn Atle Hilstad", role: "Verksmester", phone: { label: "480 37 902", href: "tel:+4748037902" } },
+  { name: "Ola Resell", role: "Delesjef", phone: { label: "480 41 241", href: "tel:+4748041241" } },
+  { name: "Bjørn Johny Holten", role: "Verksmester, Surnadal", phone: phones.surnadal },
+  { name: "Jon Olav Holten", role: "Bilselger, Surnadal", phone: { label: "91 72 06 06", href: "tel:+4791720606" } },
+  { name: "[Navn]", role: "[Rolle]" },
+];
+
+export const surnadalPeople: Person[] = [
+  { name: "Bjørn Johny Holten", role: "Verksmester", phone: phones.surnadal },
+  { name: "Jon Olav Holten", role: "Bilselger", phone: { label: "91 72 06 06", href: "tel:+4791720606" } },
+  { name: "Espen Bredesen", role: "Bilmekaniker" },
+  { name: "Even Meisal", role: "Bilmekaniker" },
+];

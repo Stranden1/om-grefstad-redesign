@@ -1,41 +1,41 @@
-import { dealership, navigation } from "@/data/site";
+import Link from "next/link";
+import { emails, links, phones } from "@/data/site";
 
 export function SiteFooter() {
   return (
-    <footer className="site-footer">
-      <div className="shell footer-grid">
-        <div>
-          <a className="wordmark wordmark-light" href="#top">
-            <span>O.M.</span>
-            <strong>GREFSTAD</strong>
-          </a>
-          <p className="footer-intro">
-            Lokal bilforhandler og verksted på Løkken Verk og i Surnadal.
-          </p>
-        </div>
-        <div>
-          <p className="footer-label">Navigasjon</p>
-          {navigation.map((item) => (
-            <a key={item.href} href={item.href}>
-              {item.label}
-            </a>
-          ))}
-        </div>
-        {dealership.locations.map((location) => (
-          <div key={location.id}>
-            <p className="footer-label">{location.name}</p>
-            <p>{location.address}</p>
-            <a href={location.phone.href}>{location.phone.label}</a>
-            <a href={location.email.href}>{location.email.label}</a>
+    <footer className="foot">
+      <div className="wrap">
+        <span className="fbrand">O.M. Grefstad</span>
+        <div className="deps">
+          <div>
+            <strong>Løkken Verk</strong>
+            <span>Løkkenveien [386/175]</span>
+            <br />
+            <a href={phones.lokken.href}>{phones.lokken.label}</a>
+            <br />
+            <span>Man–fre [åpningstid]</span>
           </div>
-        ))}
-      </div>
-      <div className="shell footer-bottom">
-        <span>© {new Date().getFullYear()} {dealership.name}</span>
-        <span>Uavhengig redesignprototype · Ikke produksjonsnettsted</span>
-        <a href="#top">Til toppen ↑</a>
+          <div>
+            <strong>
+              <Link href="/surnadal">Surnadal</Link>
+            </strong>
+            <span>Øravegen 4</span>
+            <br />
+            <a href={phones.surnadal.href}>{phones.surnadal.label}</a>
+            <br />
+            <span>Man–fre [åpningstid]</span>
+          </div>
+        </div>
+        <div className="links">
+          <Link href="/om-oss">Om oss og historien</Link>
+          <a href={links.opel} target="_blank" rel="noopener">Nye Opel</a>
+          <Link href="/biler">Nye Subaru</Link>
+          <Link href="/personvern">Personvern</Link>
+          <a href={links.facebook} target="_blank" rel="noopener">Facebook</a>
+          <a href={emails.lokken.href}>{emails.lokken.label}</a>
+        </div>
+        <p className="demo">Demo av ny nettside. Bilder av biler er midlertidige eksempler.</p>
       </div>
     </footer>
   );
 }
-

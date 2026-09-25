@@ -1,51 +1,45 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
+import { SiteFooter } from "@/components/SiteFooter";
+import { MobileBar, SiteHeader } from "@/components/SiteHeader";
 import "./globals.css";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const headerList = await headers();
-  const host =
-    headerList.get("x-forwarded-host") ??
-    headerList.get("host") ??
-    "localhost:3000";
-  const protocol =
-    headerList.get("x-forwarded-proto") ??
-    (host.startsWith("localhost") ? "http" : "https");
-  const baseUrl = `${protocol}://${host}`;
+const description =
+  "Familiebedrift siden 1936. Opel- og Subaru-forhandler med bruktbiler, verksted for alle merker, EU-kontroll, dekkhotell og bilvask.";
 
-  return {
-    title: "O.M. Grefstad | Bilforhandler og verksted",
-    description:
-      "Uavhengig redesignprototype for O.M. Grefstad – biler, Opel og lokalt verksted på Løkken Verk og i Surnadal.",
-    openGraph: {
-      title: "Dette er O.M. Grefstad på Løkken Verk",
-      description:
-        "Biler, Opel og lokalt verksted – stolt Opel-forhandler siden 1977.",
-      type: "website",
-      locale: "nb_NO",
-      images: [
-        {
-          url: `${baseUrl}/og-v2.png`,
-          width: 1536,
-          height: 1024,
-          alt: "O.M. Grefstad på Løkken Verk – stolt Opel-forhandler siden 1977",
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Dette er O.M. Grefstad på Løkken Verk",
-      description:
-        "Biler, Opel og lokalt verksted – stolt Opel-forhandler siden 1977.",
-      images: [`${baseUrl}/og-v2.png`],
-    },
-  };
-}
+export const metadata: Metadata = {
+  title: {
+    default: "O.M. Grefstad – bil, verksted og vask på Løkken Verk og i Surnadal",
+    template: "%s | O.M. Grefstad",
+  },
+  description,
+  openGraph: {
+    title: "O.M. Grefstad – bil, verksted og vask",
+    description,
+    type: "website",
+    locale: "nb_NO",
+  },
+};
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="nb">
-      <body>{children}</body>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Karla:wght@400;500;700&display=swap"
+        />
+      </head>
+      <body>
+        <a href="#main" className="btn btn-sm skip-link">
+          Hopp til innhold
+        </a>
+        <SiteHeader />
+        <main id="main">{children}</main>
+        <SiteFooter />
+        <MobileBar />
+      </body>
     </html>
   );
 }
