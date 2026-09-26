@@ -1,30 +1,58 @@
 import Link from "next/link";
 import { emails, links, phones } from "@/data/site";
 
+const departments = [
+  {
+    name: "Løkken Verk",
+    href: "/kontakt",
+    address: "Løkkenveien [386/175], 7332 Løkken Verk",
+    phone: phones.lokken,
+    email: emails.lokken,
+    hours: [
+      ["Salg", "[åpningstid]"],
+      ["Verksted", "[åpningstid]"],
+      ["Bilvask", "Hver dag 07:30–15:00"],
+    ],
+  },
+  {
+    name: "Surnadal",
+    href: "/surnadal",
+    address: "Øravegen 4, 6650 Surnadal",
+    phone: phones.surnadal,
+    email: emails.surnadal,
+    hours: [
+      ["Salg", "[åpningstid]"],
+      ["Verksted", "[åpningstid]"],
+    ],
+  },
+];
+
 export function SiteFooter() {
   return (
     <footer className="foot">
       <div className="wrap">
         <span className="fbrand">O.M. Grefstad</span>
         <div className="deps">
-          <div>
-            <strong>Løkken Verk</strong>
-            <span>Løkkenveien [386/175]</span>
-            <br />
-            <a href={phones.lokken.href}>{phones.lokken.label}</a>
-            <br />
-            <span>Man–fre [åpningstid]</span>
-          </div>
-          <div>
-            <strong>
-              <Link href="/surnadal">Surnadal</Link>
-            </strong>
-            <span>Øravegen 4</span>
-            <br />
-            <a href={phones.surnadal.href}>{phones.surnadal.label}</a>
-            <br />
-            <span>Man–fre [åpningstid]</span>
-          </div>
+          {departments.map((dep) => (
+            <div key={dep.name} className="foot-dep">
+              <h2>
+                <Link href={dep.href}>{dep.name}</Link>
+              </h2>
+              <span>{dep.address}</span>
+              <a className="foot-phone" href={dep.phone.href}>
+                {dep.phone.label}
+              </a>
+              <a href={dep.email.href}>{dep.email.label}</a>
+              <dl>
+                {dep.hours.map(([label, value]) => (
+                  <div key={label}>
+                    <dt>{label}</dt>
+                    <dd>{value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          ))}
         </div>
         <div className="links">
           <Link href="/om-oss">Om oss og historien</Link>
@@ -32,7 +60,6 @@ export function SiteFooter() {
           <Link href="/biler">Nye Subaru</Link>
           <Link href="/personvern">Personvern</Link>
           <a href={links.facebook} target="_blank" rel="noopener">Facebook</a>
-          <a href={emails.lokken.href}>{emails.lokken.label}</a>
         </div>
         <p className="demo">Demo av ny nettside. Bilder av biler er midlertidige eksempler.</p>
       </div>

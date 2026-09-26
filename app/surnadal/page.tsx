@@ -11,7 +11,7 @@ export default function Surnadal() {
       <section className="hero">
         <div className="wrap hero-grid">
           <div className="hero-text">
-            <span className="badge">Subaru i Surnadal siden 1987</span>
+            <p className="eyebrow">Subaru i Surnadal siden 1987</p>
             <h1>Verksted og bilsalg i Surnadal.</h1>
             <p className="lead">
               Service og reparasjon på alle bilmerker, EU-kontroll, dekk og ruteskift. Vi selger Opel og Subaru, og har

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Person, ServiceCard, WashIcon } from "@/components/Blocks";
+import { PaintIcon, PartsIcon, Person, ServiceCard, WashIcon, WindshieldIcon } from "@/components/Blocks";
 import { links, people, phones, sampleCars } from "@/data/site";
 
 export default function Home() {
@@ -8,18 +8,20 @@ export default function Home() {
       <section className="hero">
         <div className="wrap hero-grid">
           <div className="hero-text">
-            <span className="badge">Familiebedrift på Løkken Verk siden 1936</span>
+            <p className="eyebrow">
+              Familiebedrift på Løkken Verk siden 1936 · <Link href="/om-oss">Vår historie →</Link>
+            </p>
             <h1>Vi hjelper deg med bilen din.</h1>
             <p className="lead">
               Enten du skal kjøpe ny eller brukt, trenger service og dekkskift, eller bare vil ha en ren bil.
             </p>
             <div className="hero-cta">
-              <a className="btn" href={phones.lokken.href}>
+              <a className="btn btn-primary" href={phones.lokken.href}>
                 Ring oss · {phones.lokken.label}
               </a>
-              <small>
-                <Link href="/surnadal">Surnadal</Link>: <a href={phones.surnadal.href}>{phones.surnadal.label}</a>
-              </small>
+              <Link className="btn" href="/surnadal">
+                Avdeling Surnadal →
+              </Link>
             </div>
           </div>
           <img className="hero-img" src="/images/hero-corsa.jpg" alt="Hvit Opel Corsa parkert ved en skogsvei" />
@@ -49,14 +51,30 @@ export default function Home() {
               action={{ label: "Ring for dekkskift", href: phones.lokken.href }}
             />
             <ServiceCard
-              dark
+              title="Karosseri og lakk"
+              text="Skadereparasjon og lakkering på Løkken Verk."
+              icon={<PaintIcon />}
+              action={{ label: "Ring om skade", href: phones.lokken.href }}
+            />
+            <ServiceCard
+              title="Ruteskift"
+              text="Vi skifter ruter på alle bilmodeller i Surnadal."
+              icon={<WindshieldIcon />}
+              action={{ label: "Ring Surnadal", href: phones.surnadal.href }}
+            />
+            <ServiceCard
+              title="Deler"
+              text="Delelager, og vi skaffer deler til andre merker på kort tid."
+              icon={<PartsIcon />}
+              action={{ label: "Ring om deler", href: phones.lokken.href }}
+            />
+            <ServiceCard
               title="Bilvask"
               text="Vaskehall på Løkken Verk."
               icon={<WashIcon />}
               status="Åpen hver dag 07:30–15:00"
             />
           </div>
-          <p className="also">Vi tar også karosseri og lakk, deler og ruteskift.</p>
         </div>
       </section>
 
