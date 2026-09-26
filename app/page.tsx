@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Person, ServiceCard } from "@/components/Blocks";
+import { Person, ServiceCard, WashIcon } from "@/components/Blocks";
 import { links, people, phones, sampleCars } from "@/data/site";
 
 export default function Home() {
@@ -52,7 +52,7 @@ export default function Home() {
               dark
               title="Bilvask"
               text="Vaskehall på Løkken Verk."
-              placeholder="[Bilde av vaskehallen]"
+              icon={<WashIcon />}
               status="Åpen hver dag 07:30–15:00"
             />
           </div>
@@ -105,7 +105,9 @@ export default function Home() {
           <div className="cars">
             {sampleCars.map((car) => (
               <a key={car.image} className="car" href={links.finn} target="_blank" rel="noopener">
-                <img src={car.image} alt={car.alt} />
+                <div className="car-media">
+                  <img src={car.image} alt={car.alt} />
+                </div>
                 <div>
                   <small>{car.meta}</small>
                   <strong className="name">{car.name}</strong>

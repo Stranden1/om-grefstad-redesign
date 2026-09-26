@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Person, ServiceCard } from "@/components/Blocks";
+import { Person, PinIcon, ServiceCard } from "@/components/Blocks";
 import { emails, links, phones, surnadalPeople } from "@/data/site";
 
 export const metadata: Metadata = { title: "Avdeling Surnadal" };
@@ -24,7 +24,14 @@ export default function Surnadal() {
               <small>Øravegen 4, på ALTI-senteret</small>
             </div>
           </div>
-          <div className="ph hero-ph">[Bilde av avdelingen i Surnadal]</div>
+          <div className="hero-panel">
+            <PinIcon />
+            <strong>Øravegen 4</strong>
+            <span>6650 Surnadal · på ALTI-senteret</span>
+            <a className="btn btn-primary" href={links.mapsSurnadal} target="_blank" rel="noopener">
+              Finn veien
+            </a>
+          </div>
         </div>
       </section>
 

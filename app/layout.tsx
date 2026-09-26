@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
 import { SiteFooter } from "@/components/SiteFooter";
 import { MobileBar, SiteHeader } from "@/components/SiteHeader";
 import "./globals.css";
@@ -28,7 +29,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Karla:wght@400;500;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Karla:wght@400;500;700&display=swap"
         />
       </head>
       <body>
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <main id="main">{children}</main>
         <SiteFooter />
         <MobileBar />
+        <RevealOnScroll />
       </body>
     </html>
   );
